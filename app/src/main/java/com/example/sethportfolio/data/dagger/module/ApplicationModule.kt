@@ -1,0 +1,37 @@
+package com.example.sethportfolio.data.dagger.module
+
+import com.example.sethportfolio.data.app.Config
+import com.example.sethportfolio.data.app.SessionManager
+import com.example.sethportfolio.data.network.ApiClient
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
+@Module
+class ApplicationModule {
+
+    @Singleton
+    @Provides
+    fun sharedUser():SessionManager {
+        return SessionManager()
+    }
+
+    @Singleton
+    @Provides
+    fun apiClient():ApiClient {
+        return Retrofit.Builder()
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(Config.BASE_URL)
+            .build()
+            .create(ApiClient::class.java)
+    }
+
+
+
+}
