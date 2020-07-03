@@ -2,6 +2,8 @@ package com.example.sethportfolio.data.app
 
 import android.content.Context
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -31,4 +33,12 @@ fun <T> LiveData<T>.onlyNew(lifecycleOwner: LifecycleOwner): LiveData<T> {
         return LiveDataReactiveStreams.fromPublisher(x)
     }
     return this
+}
+
+fun ProgressBar.show() {
+    this.visibility = View.VISIBLE
+}
+
+fun ProgressBar.hide() {
+    this.visibility = View.GONE
 }
