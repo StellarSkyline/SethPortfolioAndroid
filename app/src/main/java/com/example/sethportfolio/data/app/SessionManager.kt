@@ -10,10 +10,10 @@ class SessionManager {
 
     val editor = sharePreference.edit()
 
-    fun addUser(name:String, email:String,mobile:String) {
-        editor.putString(USER_NAME,name)
-        editor.putString(USER_EMAIL, email)
-        editor.putString(USER_MOBILE,mobile)
+    fun addUser(user:User) {
+        editor.putString(USER_NAME,user.name)
+        editor.putString(USER_EMAIL, user.email)
+        editor.putString(USER_MOBILE,user.mobile)
         editor.commit()
     }
 

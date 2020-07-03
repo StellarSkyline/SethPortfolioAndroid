@@ -1,6 +1,7 @@
 package com.example.sethportfolio.data.dagger.component
 
 import com.example.sethportfolio.data.dagger.module.ApplicationModule
+import com.example.sethportfolio.data.repo.AuthRepo
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,5 +10,7 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     //Dependency Graph where dagger will work
-    //fun inject(function or class)
+
+    //Inject into Auth Repo
+    fun inject(aRepo: AuthRepo)
 }
