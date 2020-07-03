@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class AuthViewModel:ViewModel() {
-    //Repo Instansation
+    //Repo Instance
     val repo = AuthRepo()
     //=====================================
 
@@ -26,9 +26,7 @@ class AuthViewModel:ViewModel() {
         x
     }
 
-    val checkRegister by lazy {
-        MutableLiveData<Boolean>()
-    }
+    val registerResponse by lazy {MutableLiveData<Boolean>()}
 
     //Login Items
     //=======================================
@@ -38,6 +36,8 @@ class AuthViewModel:ViewModel() {
         x
     }
 
+     val loginResponse by lazy{MutableLiveData<Boolean>()}
+
     //Functions
     //==================================
 
@@ -45,16 +45,21 @@ class AuthViewModel:ViewModel() {
         //run repo registerUser and run it in corotuine
         viewModelScope.launch{
             var x = repo.registerUser(registerUser)
+
+            //setting data should be on the main thread
             withContext(Main) {
-                checkRegister.value = x
+                registerResponse.value = x
             }
         }
     }
 
-
-
-
     fun buttonLoginClicked(view:View) {
-        App.instance.log(loginUser.value.toString())
+        viewModelScope.launch {
+            var x = repo.loginUser(loginUser)
+
+            withContext(Main) {
+                loginResponse.value = x
+            }
+        }
     }
 }

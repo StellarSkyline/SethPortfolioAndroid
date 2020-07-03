@@ -37,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
 //            }
 //        })
 
-        viewModel.checkRegister.onlyNew(this).observe(this, Observer{
+        viewModel.registerResponse.onlyNew(this).observe(this, Observer{
             when(it) {
                 true -> {
                     toast("Register Successful")
