@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "752881259806",
+    "firebase_url": "https://sethportfolio-88648.firebaseio.com",
+    "project_id": "sethportfolio-88648",
+    "storage_bucket": "sethportfolio-88648.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752881259806:android:090f805179b8a6b7e2e50f",
+        "android_client_info": {
+          "package_name": "com.example.sethportfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752881259806-sve3b05gs5qpavqa8qgi1ii33vhm28te.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr_AmO3gzEEjKaiJDH3l1MsEq0KlybFos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752881259806-sve3b05gs5qpavqa8qgi1ii33vhm28te.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

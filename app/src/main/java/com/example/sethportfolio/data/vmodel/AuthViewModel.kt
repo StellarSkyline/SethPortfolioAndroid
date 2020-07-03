@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import com.example.sethportfolio.data.app.App
 import com.example.sethportfolio.data.app.log
 import com.example.sethportfolio.data.model.User
+import com.example.sethportfolio.data.repo.AuthRepo
 
 class AuthViewModel:ViewModel() {
+
+    val repo = AuthRepo()
 
     val registerUser by lazy {
         val x = MutableLiveData<User>()
@@ -23,7 +26,9 @@ class AuthViewModel:ViewModel() {
 
     fun buttonRegisterClicked(view: View) {
 
-        App.instance.log(registerUser.value.toString())
+        //App.instance.log(registerUser.value.toString())
+        //Call Repo register function
+        repo.registerUser(registerUser)
     }
 
     fun buttonLoginClicked(view:View) {
