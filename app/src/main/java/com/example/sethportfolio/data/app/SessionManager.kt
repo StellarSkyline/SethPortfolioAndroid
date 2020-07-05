@@ -7,6 +7,7 @@ class SessionManager {
     val USER_NAME = "userName"
     val USER_EMAIL = "userEmail"
     val USER_MOBILE = "userMobile"
+    val IS_LOGGED_IN = "loggedIn"
 
     val editor = sharePreference.edit()
 
@@ -22,6 +23,13 @@ class SessionManager {
             email = sharePreference.getString(USER_EMAIL,null)!!,
             mobile = sharePreference.getString(USER_MOBILE,null)!!)
     }
+
+    fun setLogKey(key:Boolean) {
+        editor.putBoolean(IS_LOGGED_IN,key)
+        editor.commit()
+    }
+
+    fun logCheck():Boolean = sharePreference.getBoolean(IS_LOGGED_IN, false)
 
 
 

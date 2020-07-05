@@ -5,9 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.sethportfolio.R
+import com.example.sethportfolio.data.vmodel.FragmentViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class FragmentHome: Fragment() {
+
+   val viewModel:FragmentViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,5 +24,8 @@ class FragmentHome: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        text_view_intro.text = viewModel.introText()
+
     }
 }
