@@ -3,6 +3,7 @@ package com.example.sethportfolio.data.vmodel
 import android.view.View
 import androidx.lifecycle.*
 import com.example.sethportfolio.data.app.App
+import com.example.sethportfolio.data.app.SessionManager
 import com.example.sethportfolio.data.app.log
 import com.example.sethportfolio.data.app.onlyNew
 import com.example.sethportfolio.data.model.User
@@ -16,6 +17,7 @@ import kotlinx.coroutines.withContext
 class AuthViewModel:ViewModel() {
     //Repo Instance
     val repo = AuthRepo()
+    val sm = SessionManager()
     //=====================================
 
     //Register Items
@@ -54,6 +56,7 @@ class AuthViewModel:ViewModel() {
     }
 
     fun buttonLoginClicked(view:View) {
+        sm.setLogKey(true)
         viewModelScope.launch {
             var x = repo.loginUser(loginUser)
 
