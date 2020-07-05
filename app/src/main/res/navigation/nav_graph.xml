@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nac_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
 
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.sethportfolio.ui.fragment.FragmentHome"
+        android:label="FragmentHome" />
+    <fragment
+        android:id="@+id/fragmentGraphics"
+        android:name="com.example.sethportfolio.ui.fragment.FragmentGraphics"
+        android:label="FragmentGraphics" />
+    <action
+        android:id="@+id/action_global_fragmentGraphics"
+        app:destination="@id/fragmentGraphics"
+        app:popUpTo="@id/fragmentHome" />
+    <action
+        android:id="@+id/action_global_fragmentHome"
+        app:destination="@id/fragmentHome"
+        app:popUpTo="@id/fragmentHome" />
+    <fragment
+        android:id="@+id/fragmentDevelopment"
+        android:name="com.example.sethportfolio.ui.fragment.FragmentDevelopment"
+        android:label="FragmentDevelopment" />
+    <action
+        android:id="@+id/action_global_fragmentDevelopment"
+        app:destination="@id/fragmentDevelopment"
+        app:popUpTo="@id/fragmentHome" />
+    <fragment
+        android:id="@+id/fragmentFilm"
+        android:name="com.example.sethportfolio.ui.fragment.FragmentFilm"
+        android:label="FragmentFilm" />
+    <action
+        android:id="@+id/action_global_fragmentFilm"
+        app:destination="@id/fragmentFilm"
+        app:popUpTo="@id/fragmentHome" />
 </navigation>

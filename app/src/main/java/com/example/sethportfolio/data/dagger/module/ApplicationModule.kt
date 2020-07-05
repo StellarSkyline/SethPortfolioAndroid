@@ -3,6 +3,7 @@ package com.example.sethportfolio.data.dagger.module
 import com.example.sethportfolio.data.app.Config
 import com.example.sethportfolio.data.app.SessionManager
 import com.example.sethportfolio.data.network.ApiClient
+import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -18,6 +19,12 @@ class ApplicationModule {
     @Provides
     fun sharedUser():SessionManager {
         return SessionManager()
+    }
+
+    @Singleton
+    @Provides
+    fun fbAuth():FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 
     @Singleton
