@@ -1,6 +1,7 @@
 package com.example.sethportfolio.data.vmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.sethportfolio.data.model.Graphics
 import com.example.sethportfolio.data.repo.FragmentRepo
 
 class FragmentViewModel:ViewModel() {
@@ -16,7 +17,13 @@ class FragmentViewModel:ViewModel() {
     }
 
 
+    //===============================================
 
+    //Graphics Fragment =============================
+
+    fun getGraphicsList():ArrayList<Graphics> {
+        return repo.getGraphics()
+    }
 
     //===============================================
 
