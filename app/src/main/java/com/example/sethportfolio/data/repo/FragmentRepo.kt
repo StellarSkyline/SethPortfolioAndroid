@@ -19,7 +19,7 @@ class FragmentRepo() {
 
         //Graphics 1
         list.add(Graphics("https://firebasestorage.googleapis.com/v0/b/sethportfolio-88648.appspot.com/o/graphics_1.jpg?alt=media&token=be0b3612-674e-44cb-baa2-5571ffd3d6b1",
-        "Vector Poster", "This was created as a commissioned work in early 2016", "Adobe Illustrator"))
+        "Vector Poster", "This was created as a commissioned work in early 2016", "AI"))
 
         //Graphics2
         list.add(Graphics("https://firebasestorage.googleapis.com/v0/b/sethportfolio-88648.appspot.com/o/graphics_2.jpg?alt=media&token=9326f3e7-7751-4532-9463-1cd9bcc14f2a",
@@ -56,6 +56,10 @@ class FragmentRepo() {
         //Graphics10
         list.add(Graphics("https://firebasestorage.googleapis.com/v0/b/sethportfolio-88648.appspot.com/o/graphics_10.jpg?alt=media&token=d3dc1d7b-872d-4522-9bbd-0c6b18913fe0",
         "Product Design", "This was a Product Design  art board commissioned by BabyFlo Philippines","AI"))
+
+        //Graphics11
+        list.add(Graphics("https://firebasestorage.googleapis.com/v0/b/sethportfolio-88648.appspot.com/o/graphics_11.png?alt=media&token=aa20df2c-00e6-4a73-970f-6b48927774b4",
+            "UI Design","Sketch Design for Auth Screen for this App","SK"))
         return list
 
     }

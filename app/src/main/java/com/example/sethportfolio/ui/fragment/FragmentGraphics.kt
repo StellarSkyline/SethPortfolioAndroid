@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sethportfolio.R
 import com.example.sethportfolio.data.adapter.AdapterGraphics
-import com.example.sethportfolio.data.app.App
 import com.example.sethportfolio.data.vmodel.FragmentViewModel
 import kotlinx.android.synthetic.main.fragment_graphics.*
 
@@ -35,13 +34,3 @@ class FragmentGraphics: Fragment() {
     }
 }
 
-//Firebase Storage
-/*
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
- */

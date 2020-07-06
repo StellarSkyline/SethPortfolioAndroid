@@ -3,6 +3,7 @@ package com.example.sethportfolio.ui.activity
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.sethportfolio.R
 import com.example.sethportfolio.data.model.Graphics
 import com.squareup.picasso.Picasso
@@ -12,6 +13,8 @@ class GraphicsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_graphics)
+
+        image_view_tool.setImageResource(0)
 
         var item = intent.getSerializableExtra("data") as Graphics
 
@@ -26,6 +29,7 @@ class GraphicsActivity : AppCompatActivity() {
         when(item.tool) {
             "PS" -> {image_view_tool.setImageResource(R.drawable.ic_img_ps)}
             "AI" -> {image_view_tool.setImageResource(R.drawable.ic_img_ai)}
+            "SK" -> {image_view_tool.setImageResource(R.drawable.img_sketch)}
         }
 
         button_back.setOnClickListener {
