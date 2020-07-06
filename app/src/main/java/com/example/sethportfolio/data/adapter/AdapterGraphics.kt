@@ -39,9 +39,6 @@ class AdapterGraphics(var mContext: Context):RecyclerView.Adapter<AdapterGraphic
                 .placeholder(R.drawable.img_loading)
                 .into(itemView.image_view_graphics)
 
-
-
-
         }
 
     }
