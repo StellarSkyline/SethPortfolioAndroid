@@ -2,6 +2,7 @@ package com.example.sethportfolio.data.dagger.component
 
 import com.example.sethportfolio.data.dagger.module.ApplicationModule
 import com.example.sethportfolio.data.repo.AuthRepo
+import com.example.sethportfolio.data.repo.FragmentRepo
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,4 +14,5 @@ interface ApplicationComponent {
 
     //Inject into Auth Repo
     fun inject(aRepo: AuthRepo)
+    fun inject(fRepo:FragmentRepo)
 }

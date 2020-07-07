@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sethportfolio.R
 import com.example.sethportfolio.data.adapter.AdapterGraphics
+import com.example.sethportfolio.data.app.App
+import com.example.sethportfolio.data.app.log
 import com.example.sethportfolio.data.vmodel.FragmentViewModel
 import kotlinx.android.synthetic.main.fragment_graphics.*
 
@@ -22,6 +25,7 @@ class FragmentGraphics: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_graphics,container, false)
     }
 
@@ -30,7 +34,14 @@ class FragmentGraphics: Fragment() {
         adapter = AdapterGraphics(activity?.applicationContext!!)
         recycler_view.layoutManager = LinearLayoutManager(activity?.applicationContext!!)
         recycler_view.adapter = adapter
-        adapter.setData(viewModel.getGraphicsList())
+
+
+        viewModel.graphicsResponse.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                true -> {adapter.setData(viewModel.repo.graphicsList.value!!)}
+                false -> {App.instance.log("Error Loading Firebase Data")}
+            }
+        })
     }
 }
 

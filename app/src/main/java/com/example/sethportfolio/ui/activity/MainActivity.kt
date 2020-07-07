@@ -3,8 +3,10 @@ package com.example.sethportfolio.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.navigation.findNavController
 import com.example.sethportfolio.R
+import com.example.sethportfolio.data.vmodel.FragmentViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,14 +15,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     lateinit var navView:BottomNavigationView
     val navController by lazy {findNavController(R.id.nav_host)}
+    val viewModel:FragmentViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //This will call coroutines and load them all asyncrhonusly in the background
+        runFragmentCoroutines()
+
         navView = bottom_navigation
         navView.itemIconTintList = null
         navView.setOnNavigationItemSelectedListener(this)
+
 
 
 
@@ -35,6 +42,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
         return true
+    }
+
+    fun runFragmentCoroutines() {
+        viewModel.getGraphicsList()
     }
 
 }
