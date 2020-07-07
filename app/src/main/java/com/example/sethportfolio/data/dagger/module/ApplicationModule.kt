@@ -4,6 +4,8 @@ import com.example.sethportfolio.data.app.Config
 import com.example.sethportfolio.data.app.SessionManager
 import com.example.sethportfolio.data.network.ApiClient
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -37,6 +39,12 @@ class ApplicationModule {
             .baseUrl(Config.BASE_URL)
             .build()
             .create(ApiClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun fbDatabase():DatabaseReference {
+        return FirebaseDatabase.getInstance().getReference(Config.COLLECTION_NAME)
     }
 
 
