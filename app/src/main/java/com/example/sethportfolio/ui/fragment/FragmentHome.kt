@@ -25,7 +25,7 @@ class FragmentHome: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        text_view_intro.text = viewModel.introText()
+        text_view_content.text = viewModel.introText()
 
     }
 }
